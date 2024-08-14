@@ -27,8 +27,8 @@ pipe.load_textual_inversion(
     token="EasyNegativeV2"
 )
 
-prompt = "woman, 50 years old, high resolution, realistic, portrait, japanese"
-negative_prompt = "EasyNegative, paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), split view, grid view, monochrome"
+prompt = "woman,40 years old, high resolution, realistic, portrait, japanese, grey hair, smile"
+negative_prompt = "EasyNegative, paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), split view, grid view, monochrome,(wrinkle:3)"
 #negative_prompt="EasyNegativeV2, extra fingers, fewer fingers"
 
 #generator = None

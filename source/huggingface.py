@@ -11,10 +11,8 @@ from pathlib import Path
 import torch
 from diffusers import StableDiffusionPipeline
 
-
 hub_dir = Path(os.getenv("HOME"))/".cache/huggingface/hub"
-model = str("/home/kousei/.cache/huggingface/hub/BracingEvoMix_v2.safetensors")
-
+model = str("/home/kousei/.cache/huggingface/hub/BracingEvoMix/BracingEvoMix_v2.safetensors")
 pipe = StableDiffusionPipeline.from_single_file(
     model,
     torch_dtype=torch.float16
@@ -27,7 +25,7 @@ pipe.load_textual_inversion(
     token="EasyNegativeV2"
 )
 
-prompt = "woman,70 years old, high resolution, realistic, portrait, japanese, grey hair, smile, traditional, beautiful skin, plump"
+prompt = "woman,70 years old, high resolution, realistic, portrait, japanese, grey hair, smile, traditional, beautiful skin, big mouse"
 negative_prompt = "EasyNegative, paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), split view, grid view, monochrome,(wrinkle:3)"
 #negative_prompt="EasyNegativeV2, extra fingers, fewer fingers"
 

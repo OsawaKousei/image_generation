@@ -12,7 +12,7 @@ import torch
 from diffusers import StableDiffusionPipeline
 
 hub_dir = Path(os.getenv("HOME"))/".cache/huggingface/hub"
-model = str("/home/kousei/.cache/huggingface/hub/AsianModel/Brav6.safetensors")
+model = str("/home/kousei/.cache/huggingface/hub/model/Brav6.safetensors")
 pipe = StableDiffusionPipeline.from_single_file(
     model,
     torch_dtype=torch.float16

@@ -20,7 +20,7 @@ services:
     image: n622jwith/image_generation:latest
     # ホストの22番ポートは使用できないので、10000番ポートを使用する(22にアクセスするとkey errorが発生する)
     ports:
-      - "10002:22"
+      - "10003:22"
     # これは必要ないかもしれない
     platform: "linux/amd64"
     environment:

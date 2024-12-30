@@ -13,7 +13,10 @@ wheels/
 .mypy_cache/
 
 # models
-models/
+*models*/
 
 # results
-results/
+*result*/
+
+# datasets
+*dataset*/

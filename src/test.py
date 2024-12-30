@@ -23,7 +23,7 @@ pipeline = StableDiffusion3Pipeline.from_pretrained(
 )
 pipeline.enable_model_cpu_offload()
 
-prompt = "A capybara holding a sign that reads Hello World"
+prompt = "Mnist-style numeral 8"
 
 image = pipeline(
     prompt=prompt,
@@ -31,4 +31,4 @@ image = pipeline(
     guidance_scale=4.5,
     max_sequence_length=512,
 ).images[0]
-image.save("./result/output.png")
+image.save("./results/output.png")

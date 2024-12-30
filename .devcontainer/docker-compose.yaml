@@ -1,0 +1,33 @@
+# Change the service name and container name, hostname to your project name
+# Change the volumes to your project path
+services:
+  image_generation:
+    container_name: image_generation
+    build:
+      context: .
+      args:
+        - USER_NAME=${USER_NAME}
+      dockerfile: dockerfile
+    image: n622jwith/image_generation:latest
+    environment:
+      - DISPLAY=${DISPLAY}
+      - "QT_X11_NO_MITSHM=1"
+    volumes:
+      # GUI
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority/:/home/${USER_NAME}/.Xauthority:ro
+      # ssh key
+      - $HOME/.ssh:/home/${USER_NAME}/.ssh:ro
+      # workspace
+      - $HOME/ML/image_generation/:/home/${USER_NAME}/image_generation
+    hostname: image_generation
+    shm_size: '2gb'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    tty: true
+    user: "${UID}:${GID}"

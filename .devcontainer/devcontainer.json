@@ -1,0 +1,27 @@
+// Change the name and workspaceFolder, service to your project name
+{
+    "name": "image_generation",
+    "dockerComposeFile": "./docker-compose.yaml",
+    "workspaceFolder": "${localEnv:HOME}/image_generation",
+    "service": "image_generation",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "njpwerner.autodocstring",
+                "ms-python.black-formatter",
+                "usernamehw.errorlens",
+                "ms-python.flake8",
+                "mhutchie.git-graph",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "oderwat.indent-rainbow",
+                "ms-python.isort",
+                "ms-python.mypy-type-checker",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy"
+            ],
+            "settings": {"terminal.integrated.shell.linux": "/bin/bash"}
+        }
+    }
+}

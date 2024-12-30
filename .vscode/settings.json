@@ -1,0 +1,38 @@
+{
+    // python
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "black-formatter.args": [
+        "--skip-string-normalization"
+    ],
+    "isort.args": ["--profile", "black"],
+    "flake8.severity": {
+        "E": "Warning",
+        "F": "Warning",
+        "I": "Warning"
+    },
+    "flake8.args": [
+        "--max-line-length=119"
+    ],
+    "mypy-type-checker.args": [
+        "--warn-return-any",
+        "--no-implicit-optional",
+        "--disallow-untyped-calls",
+        "--disallow-untyped-defs",
+        "--ignore-missing-imports",
+        "--follow-imports=skip"
+    ],
+    "mypy-type-checker.severity": {
+        "error": "Information",
+        "note": "Information"
+    },
+    // dockerfile
+    "[dockerfile]": {
+        "editor.defaultFormatter": "exiasr.hadolint"
+    },
+}

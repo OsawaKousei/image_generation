@@ -1,0 +1,19 @@
+# Description: Docker compose file for ml_base image
+# Assumes that ml_base image is used as a base image for other images
+# Therefore, it is not intended to be run as a container
+services:
+  ml_base:
+    build:
+      context: .
+      args:
+        - USER_NAME=${USER_NAME}
+        - GROUP_NAME=${GROUP_NAME}
+        - PASSWORD=${PASSWORD}
+        - UID=${UID}
+        - GID=${GID}
+        - GIT_USER_NAME=${GIT_USER_NAME}
+        - GIT_USER_EMAIL=${GIT_USER_EMAIL}
+        - PYTHON_VERSION=${PYTHON_VERSION}
+        - CUDA_VERSION=${CUDA_VERSION}
+      dockerfile: dockerfile
+    image: n622jwith/ml_base:latest

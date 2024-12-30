@@ -1,0 +1,16 @@
+# Build base image before building this image
+FROM n622jwith/ml_base:latest
+
+# Set shell option
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Switch to user
+ARG USER_NAME
+USER ${USER_NAME}
+WORKDIR /home/${USER_NAME}
+
+# Copy setup.sh and run
+COPY setup.sh /home/${USER_NAME}/setup.sh
+RUN bash ~/setup.sh
+
+CMD ["/bin/bash"]

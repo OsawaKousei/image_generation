@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "accelerate>=1.2.1",
+    "bitsandbytes>=0.45.0",
     "black>=24.10.0",
     "diffusers>=0.32.1",
     "flake8>=7.1.1",
@@ -14,9 +15,13 @@ dependencies = [
     "mypy>=1.14.0",
     "numpy>=2.2.1",
     "pre-commit>=4.0.1",
+    "protobuf>=5.29.2",
+    "sentencepiece>=0.2.0",
+    "setuptools>=75.6.0",
     "torch>=2.5.1",
     "torchvision>=0.20.1",
     "tqdm>=4.67.1",
     "transformers>=4.47.1",
+    "wheel>=0.45.1",
     "zipp>=3.21.0",
 ]

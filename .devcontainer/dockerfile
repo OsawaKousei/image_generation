@@ -9,6 +9,9 @@ ARG USER_NAME
 USER ${USER_NAME}
 WORKDIR /home/${USER_NAME}
 
+# Install uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # Copy setup.sh and run
 COPY setup.sh /home/${USER_NAME}/setup.sh
 RUN bash ~/setup.sh

@@ -1,25 +1,22 @@
+import os
+
 import torch
-from diffusers import EulerDiscreteScheduler, StableDiffusionPipeline
+from diffusers import StableDiffusion3Pipeline
 
-# Stable Diffusion v2のモデル名
-model_id = "stabilityai/stable-diffusion-2"
+token = os.getenv("HF_TOKEN")
+print(token)
 
-num = 1
+pipe = StableDiffusion3Pipeline.from_pretrained(
+    "stabilityai/stable-diffusion-3.5-medium",
+    torch_dtype=torch.bfloat16,
+    cache_dir="./models",
+    use_auth_token=token,
+)
+pipe = pipe.to("cuda")
 
-for i in range(num):
-
-    # ノイズスケジューラ
-    scheduler = EulerDiscreteScheduler.from_pretrained(model_id, subfolder="scheduler")
-    # 重みのダウンロード & モデルのロード
-    pipe = StableDiffusionPipeline.from_pretrained(
-        model_id, scheduler=scheduler, revision="fp16", torch_dtype=torch.float16
-    )
-    # GPU使用。（CPUだと生成にかなり時間かかります。というかいつ終わるのか不明。）
-    pipe = pipe.to("cuda")
-
-    # 入力テキスト
-    prompt = "woman,40 years old,photo,yellow race"
-    negative_prompt = "EasyNegative,paintings,sketches,monochrome"
-    image = pipe(prompt=prompt, negative_prompt=negative_prompt).images[0]
-
-    image.save(f"output_{i}.png")
+image = pipe(
+    "A capybara holding a sign that reads Hello World",
+    num_inference_steps=40,
+    guidance_scale=4.5,
+).images[0]
+image.save("capybara.png")

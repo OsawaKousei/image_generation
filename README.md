@@ -2,6 +2,7 @@
 - docker
 - VS code
 - devcontainer extention
+- huggingface access token
 - hadolint (optional)
 
 # Install

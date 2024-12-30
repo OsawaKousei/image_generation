@@ -11,3 +11,9 @@ wheels/
 
 # cache
 .mypy_cache/
+
+# models
+models/
+
+# results
+results/
